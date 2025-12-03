@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Simple Voice Demo Home Automation</title>
+    <title>Voice Demo Home Automation</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- ==================== ADMIN RECORDING POPUP ==================== -->
+
 <div id="popup" class="popup">
     <h2>Record Admin Voice (10 seconds)</h2>
-    <p>Please read this line:</p>
+    <p>Please read the following line clearly:</p>
     <strong>"This is the admin voice for demo purpose."</strong>
 
     <p id="timer">10</p>
@@ -18,9 +20,12 @@
     <button id="cancelPopup">Cancel</button>
 </div>
 
+
+<!-- ==================== MAIN HOME AUTOMATION UI ==================== -->
+
 <div id="mainUI" class="hidden">
 
-    <h1>Home Automation Demo</h1>
+    <h1>🏠 Voice Controlled Home Automation</h1>
 
     <div class="devices">
 
@@ -35,17 +40,40 @@
         </div>
 
         <div class="card" id="diwaliCard">
-            <h3>Happy Diwali</h3>
+            <h3>Happy Diwali Mode</h3>
             <button onclick="startDiwali()">Start</button>
             <button onclick="stopDiwali()">Stop</button>
         </div>
 
     </div>
 
+    <!-- ==================== VOICE COMMAND SECTION ==================== -->
+
+    <h2>🎤 Voice Commands</h2>
+    <p id="recognizedText">Say something…</p>
+
+    <button id="voiceCommandBtn" class="voiceBtn">Start Voice Command</button>
+
+    <div class="cmd-list">
+        <h3>Available Commands</h3>
+        <ul>
+            <li>turn on light</li>
+            <li>turn off light</li>
+            <li>turn on fan</li>
+            <li>turn off fan</li>
+            <li>happy diwali</li>
+            <li>stop diwali</li>
+            <li>reset</li>
+        </ul>
+    </div>
+
+    <!-- Reset system -->
     <button id="resetBtn" class="reset">Reset System</button>
 
 </div>
 
+<!-- ==================== SCRIPT ==================== -->
 <script src="script.js"></script>
+
 </body>
 </html>
