@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.popup {
+    background: #222;
+    padding: 20px;
+    border-radius: 12px;
+    width: 300px;
+    margin: 120px auto;
+    box-shadow: 0 0 20px #444;
+}
+
+.devices {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.card {
+    background: #222;
+    padding: 20px;
+    width: 150px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px #333;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.reset {
+    margin-top: 40px;
+    padding: 10px 20px;
+    background: red;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.diwaliGlow {
+    animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 5px red; }
+    50% { box-shadow: 0 0 20px orange; }
+    100% { box-shadow: 0 0 5px yellow; }
+}
