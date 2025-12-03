@@ -51,7 +51,7 @@ async function uploadAdmin() {
     let formData = new FormData();
     formData.append("file", blob, "admin.webm");
 
-    await fetch("http://127.0.0.1:8000/upload-admin", {
+    await fetch("http://127.0.0.1:8000/reset", {
         method: "POST",
         body: formData
     });
