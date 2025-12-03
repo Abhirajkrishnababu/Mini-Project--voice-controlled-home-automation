@@ -1,44 +1,49 @@
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 import os
-from pydub import AudioSegment
 
 app = FastAPI()
 
+# CORS setup for frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # Allow all domains
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Create uploads directory
-if not os.path.exists("uploads"):
-    os.makedirs("uploads")
+# Ensure uploads folder exists
+UPLOAD_DIR = "uploads"
+if not os.path.exists(UPLOAD_DIR):
+    os.makedirs(UPLOAD_DIR)
+
 
 @app.get("/health")
 def health():
     return {"status": "ok"}
 
+
 @app.post("/upload-admin")
 async def upload_admin(file: UploadFile = File(...)):
-    path = "uploads/admin_audio.webm"
+    """Stores the uploaded admin audio file (demo only)."""
+    path = os.path.join(UPLOAD_DIR, "admin_audio.webm")
     content = await file.read()
 
     with open(path, "wb") as f:
         f.write(content)
 
-    # Convert to WAV (optional)
-    audio = AudioSegment.from_file(path)
-    audio.export("uploads/admin_audio.wav", format="wav")
+    return {
+        "message": "Admin audio saved successfully (demo only)",
+        "filename": file.filename
+    }
 
-    return {"message": "Admin voice recorded successfully (demo only)"}
 
 @app.post("/reset")
 async def reset():
-    if os.path.exists("uploads/admin_audio.webm"):
-        os.remove("uploads/admin_audio.webm")
-    if os.path.exists("uploads/admin_audio.wav"):
-        os.remove("uploads/admin_audio.wav")
+    """Deletes saved audio and resets state."""
+    audio_path = os.path.join(UPLOAD_DIR, "admin_audio.webm")
 
-    return {"message": "System reset to default!"}
+    if os.path.exists(audio_path):
+        os.remove(audio_path)
+
+    return {"message": "System reset to default state!"}
