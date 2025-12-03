@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Voice Demo Home Automation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="popup" class="popup">
+    <h2>Record Admin Voice (10 seconds)</h2>
+    <p>Please read this line:</p>
+    <strong>"This is the admin voice for demo purpose."</strong>
+
+    <p id="timer">10</p>
+
+    <button id="startRecordBtn">Start Recording</button>
+    <button id="cancelPopup">Cancel</button>
+</div>
+
+<div id="mainUI" class="hidden">
+
+    <h1>Home Automation Demo</h1>
+
+    <div class="devices">
+
+        <div class="card" id="bulbCard">
+            <h3>Bulb</h3>
+            <button onclick="toggleBulb()">Toggle Bulb</button>
+        </div>
+
+        <div class="card" id="fanCard">
+            <h3>Fan</h3>
+            <button onclick="toggleFan()">Toggle Fan</button>
+        </div>
+
+        <div class="card" id="diwaliCard">
+            <h3>Happy Diwali</h3>
+            <button onclick="startDiwali()">Start</button>
+            <button onclick="stopDiwali()">Stop</button>
+        </div>
+
+    </div>
+
+    <button id="resetBtn" class="reset">Reset System</button>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
