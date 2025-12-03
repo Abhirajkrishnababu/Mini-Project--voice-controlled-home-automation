@@ -51,7 +51,7 @@ async function uploadAdmin() {
     let formData = new FormData();
     formData.append("file", blob, "admin.webm");
 
-    await fetch("http://127.0.0.1:8000/reset", {
+    await fetch("https://voice-demo-backend.onrender.com/upload-admin", {
         method: "POST",
         body: formData
     });
@@ -80,6 +80,6 @@ function stopDiwali() {
 
 // --- RESET SYSTEM ---
 document.getElementById("resetBtn").onclick = async () => {
-    await fetch("http://127.0.0.1:8000/reset", { method: "POST" });
+    await fetch("https://voice-demo-backend.onrender.com/reset", { method: "POST" });
     location.reload();
 };
