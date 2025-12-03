@@ -1,60 +1,133 @@
 body {
-    font-family: Arial, sans-serif;
-    background: #111;
-    color: white;
+    margin: 0;
+    padding: 0;
+    background: #0d0d0d;
+    font-family: "Poppins", sans-serif;
+    color: #ffffff;
     text-align: center;
-    padding: 20px;
+}
+
+h1, h2, h3 {
+    margin: 10px 0;
+    font-weight: 600;
 }
 
 .hidden {
     display: none;
 }
 
+/* Popup */
 .popup {
-    background: #222;
-    padding: 20px;
-    border-radius: 12px;
-    width: 300px;
-    margin: 120px auto;
-    box-shadow: 0 0 20px #444;
+    background: #1a1a1a;
+    padding: 25px;
+    width: 320px;
+    border-radius: 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 25px rgba(255, 0, 100, 0.3);
+    border: 1px solid #333;
 }
 
-.devices {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 40px;
+.popup strong {
+    margin-top: 8px;
+    display: block;
+    color: #ffdd57;
 }
 
-.card {
-    background: #222;
-    padding: 20px;
-    width: 150px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px #333;
-    transition: 0.3s;
+/* Buttons */
+button {
+    padding: 10px 20px;
+    margin: 6px;
+    border: none;
+    background: #0084ff;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
 }
 
-.card:hover {
+button:hover {
+    background: #0a66c2;
     transform: scale(1.05);
 }
 
-.reset {
-    margin-top: 40px;
-    padding: 10px 20px;
-    background: red;
-    border: none;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
+.voiceBtn {
+    background: #4CAF50;
 }
 
+.reset {
+    background: #e63946;
+}
+
+.reset:hover {
+    background: #c71c30;
+}
+
+/* Device cards */
+.devices {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.card {
+    background: #141414;
+    width: 180px;
+    padding: 18px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Diwali animation */
 .diwaliGlow {
     animation: glow 1s infinite alternate;
 }
 
 @keyframes glow {
-    0% { box-shadow: 0 0 5px red; }
-    50% { box-shadow: 0 0 20px orange; }
-    100% { box-shadow: 0 0 5px yellow; }
+    0% { box-shadow: 0 0 10px red; }
+    50% { box-shadow: 0 0 25px orange; }
+    100% { box-shadow: 0 0 10px yellow; }
+}
+
+/* Voice text */
+#recognizedText {
+    color: #ccc;
+}
+
+/* Command list */
+.cmd-list {
+    margin-top: 20px;
+    background: #1a1a1a;
+    padding: 15px;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
+
+.cmd-list ul {
+    text-align: left;
+    padding-left: 20px;
+    line-height: 1.7;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .devices {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .card, .cmd-list {
+        width: 85%;
+    }
 }
